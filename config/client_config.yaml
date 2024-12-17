@@ -1,0 +1,23 @@
+# client_config.yaml configuration
+
+client:
+  # Data configuration
+  data:
+    batch_size: 32
+    shuffle_buffer: 1000
+    input_dim: 32
+
+  # Model configuration
+  model:
+    type: "feedforward"
+    hidden_dims: [128, 64]
+    activation: "relu"
+
+  # Training configuration
+  training:
+    local_epochs: 5
+    learning_rate: 0.001
+    
+monitoring:
+  log_level: "INFO"
+

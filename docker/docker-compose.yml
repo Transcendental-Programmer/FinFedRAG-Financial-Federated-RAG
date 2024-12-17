@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  fl-server:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.server
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    volumes:
+      - ../config:/app/config
+    environment:
+      - PYTHONPATH=/app
+      - CONFIG_PATH=/app/config/server_config.yaml
+    networks:
+      - fl-network
+
+  fl-client:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.client
+    depends_on:
+      - fl-server
+    volumes:
+      - ../config:/app/config
+    environment:
+      - PYTHONPATH=/app
+      - CONFIG_PATH=/app/config/client_config.yaml
+      - SERVER_HOST=fl-server
+      - SERVER_PORT=8000
+    networks:
+      - fl-network
+    deploy:
+      replicas: 3
+
+networks:
+  fl-network:
+    driver: bridge
+

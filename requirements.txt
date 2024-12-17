@@ -1,0 +1,36 @@
+# Core ML frameworks
+tensorflow>=2.6.0
+tensorflow-federated
+torch>=1.9.0
+transformers
+
+# Data processing
+pandas>=1.3.0
+numpy>=1.19.0
+scikit-learn
+
+# RAG components
+elasticsearch
+faiss-cpu
+
+# Privacy and security
+tensorflow-privacy
+pysyft
+
+# API and web
+flask
+fastapi
+uvicorn
+
+# Testing and development
+pytest
+black
+flake8
+isort
+
+# Documentation
+sphinx
+sphinx-rtd-theme
+
+# Additional requirements
+pyyaml>=5.4.1

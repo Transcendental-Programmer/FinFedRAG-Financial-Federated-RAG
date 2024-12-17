@@ -1,0 +1,18 @@
+# server_config.yaml configuration
+
+server:
+  # Federated learning configuration
+  federated:
+    min_clients: 1
+    rounds: 10
+    sample_fraction: 0.8
+    
+  # Aggregation configuration
+  aggregation:
+    method: "fedavg"
+    weighted: true
+    
+  # Monitoring configuration
+  monitoring:
+    log_level: "INFO"
+
