@@ -1,0 +1,33 @@
+# client.yaml configuration
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fl-client
+  namespace: federated-learning
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fl-client
+  template:
+    metadata:
+      labels:
+        app: fl-client
+    spec:
+      containers:
+      - name: fl-client
+        image: fl-client:latest
+        env:
+        - name: CONFIG_PATH
+          value: /app/config/client_config.yaml
+        - name: SERVER_HOST
+          value: fl-server-service
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: client-config
+

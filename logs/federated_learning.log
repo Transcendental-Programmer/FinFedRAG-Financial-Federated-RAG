@@ -1,0 +1,338 @@
+2024-12-17 21:10:27,307 - __main__ - INFO - Starting client with ID: 1
+2024-12-17 21:10:27,308 - src.client.model - INFO - Client 1 started
+2024-12-17 21:10:27,308 - src.client.model - INFO - Client config: {'data': {'batch_size': 32, 'shuffle_buffer': 1000, 'input_dim': 32}, 'model': {'type': 'feedforward', 'hidden_dims': [128, 64], 'activation': 'relu'}, 'training': {'local_epochs': 5, 'learning_rate': 0.001}}
+2024-12-17 21:10:27,310 - src.client.model - INFO - Generating training data...
+2024-12-17 21:10:27,319 - src.client.model - INFO - Generated data shapes - X: (100, 32), y: (100, 1)
+2024-12-17 21:10:27,331 - src.client.model - INFO - Starting local training...
+2024-12-17 21:10:27,331 - src.client.model - INFO - 
+Training Parameters:
+2024-12-17 21:10:27,332 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:10:27,333 - src.client.model - INFO - Input shape: (100, 32)
+2024-12-17 21:10:27,334 - src.client.model - INFO - Output shape: (100, 1)
+2024-12-17 21:10:27,334 - src.client.model - INFO - Batch size: 32
+2024-12-17 21:10:27,335 - src.client.model - INFO - Epochs: 5
+2024-12-17 21:10:27,335 - src.client.model - INFO - Learning rate: 0.001
+2024-12-17 21:10:27,336 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:10:29,148 - src.client.model - INFO - Epoch 1 - loss: 39.1214
+2024-12-17 21:10:29,244 - src.client.model - INFO - Epoch 2 - loss: 36.6787
+2024-12-17 21:10:29,357 - src.client.model - INFO - Epoch 3 - loss: 34.8911
+2024-12-17 21:10:29,517 - src.client.model - INFO - Epoch 4 - loss: 33.1400
+2024-12-17 21:10:29,605 - src.client.model - INFO - Epoch 5 - loss: 31.4399
+2024-12-17 21:10:29,612 - src.client.model - INFO - Training progress:
+2024-12-17 21:10:29,612 - src.client.model - INFO - Epoch 1/5: loss = 39.1214
+2024-12-17 21:10:29,613 - src.client.model - INFO - Epoch 2/5: loss = 36.6787
+2024-12-17 21:10:29,613 - src.client.model - INFO - Epoch 3/5: loss = 34.8911
+2024-12-17 21:10:29,614 - src.client.model - INFO - Epoch 4/5: loss = 33.1400
+2024-12-17 21:10:29,614 - src.client.model - INFO - Epoch 5/5: loss = 31.4399
+2024-12-17 21:10:29,615 - src.client.model - INFO - Local training completed. Final loss: 31.4399
+2024-12-17 21:10:29,615 - src.client.model - INFO - Model architecture:
+2024-12-17 21:10:31,396 - __main__ - INFO - Starting server...
+2024-12-17 21:10:31,397 - src.server.coordinator - INFO - 
+============================================================
+2024-12-17 21:10:31,397 - src.server.coordinator - INFO -              Federated Learning Server Starting             
+2024-12-17 21:10:31,398 - src.server.coordinator - INFO - ============================================================
+2024-12-17 21:10:31,398 - src.server.coordinator - INFO - 
+Server Configuration:
+2024-12-17 21:10:31,399 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:10:31,399 - src.server.coordinator - INFO - Minimum clients required: 1
+2024-12-17 21:10:31,400 - src.server.coordinator - INFO - Total rounds planned: 10
+2024-12-17 21:10:31,400 - src.server.coordinator - INFO - Current active clients: 0
+2024-12-17 21:10:31,401 - src.server.coordinator - INFO - ------------------------------
+
+2024-12-17 21:10:31,402 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:10:31,402 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:10:31,403 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:10:36,404 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:10:36,405 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:10:36,406 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:10:41,407 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:10:41,408 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:10:41,408 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:10:46,410 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:10:46,410 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:10:46,410 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:10:47,391 - __main__ - INFO - Starting client with ID: 1
+2024-12-17 21:10:47,392 - src.client.model - INFO - Client 1 started
+2024-12-17 21:10:47,393 - src.client.model - INFO - Client config: {'data': {'batch_size': 32, 'shuffle_buffer': 1000, 'input_dim': 32}, 'model': {'type': 'feedforward', 'hidden_dims': [128, 64], 'activation': 'relu'}, 'training': {'local_epochs': 5, 'learning_rate': 0.001}}
+2024-12-17 21:10:47,394 - src.client.model - INFO - Generating training data...
+2024-12-17 21:10:47,401 - src.client.model - INFO - Generated data shapes - X: (100, 32), y: (100, 1)
+2024-12-17 21:10:47,402 - src.client.model - INFO - Starting local training...
+2024-12-17 21:10:47,402 - src.client.model - INFO - 
+Training Parameters:
+2024-12-17 21:10:47,403 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:10:47,404 - src.client.model - INFO - Input shape: (100, 32)
+2024-12-17 21:10:47,404 - src.client.model - INFO - Output shape: (100, 1)
+2024-12-17 21:10:47,405 - src.client.model - INFO - Batch size: 32
+2024-12-17 21:10:47,405 - src.client.model - INFO - Epochs: 5
+2024-12-17 21:10:47,406 - src.client.model - INFO - Learning rate: 0.001
+2024-12-17 21:10:47,406 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:10:48,732 - src.client.model - INFO - Epoch 1 - loss: 35.5090
+2024-12-17 21:10:48,815 - src.client.model - INFO - Epoch 2 - loss: 33.0172
+2024-12-17 21:10:48,890 - src.client.model - INFO - Epoch 3 - loss: 31.0423
+2024-12-17 21:10:48,959 - src.client.model - INFO - Epoch 4 - loss: 29.2005
+2024-12-17 21:10:49,032 - src.client.model - INFO - Epoch 5 - loss: 27.5801
+2024-12-17 21:10:49,038 - src.client.model - INFO - Training progress:
+2024-12-17 21:10:49,039 - src.client.model - INFO - Epoch 1/5: loss = 35.5090
+2024-12-17 21:10:49,039 - src.client.model - INFO - Epoch 2/5: loss = 33.0172
+2024-12-17 21:10:49,040 - src.client.model - INFO - Epoch 3/5: loss = 31.0423
+2024-12-17 21:10:49,040 - src.client.model - INFO - Epoch 4/5: loss = 29.2005
+2024-12-17 21:10:49,041 - src.client.model - INFO - Epoch 5/5: loss = 27.5801
+2024-12-17 21:10:49,042 - src.client.model - INFO - Local training completed. Final loss: 27.5801
+2024-12-17 21:10:49,042 - src.client.model - INFO - Model architecture:
+2024-12-17 21:10:51,412 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:10:51,412 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:10:51,413 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:10:56,414 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:10:56,414 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:10:56,414 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:01,416 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:01,417 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:01,417 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:06,432 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:06,444 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:06,456 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:11,459 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:11,459 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:11,459 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:16,460 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:16,460 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:16,460 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:21,461 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:21,461 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:21,461 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:26,462 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:26,464 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:26,464 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:31,464 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:31,464 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:31,465 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:36,466 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:36,467 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:36,468 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:41,469 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:41,470 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:41,470 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:46,471 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:46,471 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:46,472 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:51,473 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:51,474 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:51,475 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:11:56,476 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:11:56,476 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:11:56,476 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:01,478 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:01,479 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:01,480 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:06,482 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:06,482 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:06,483 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:11,485 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:11,485 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:11,486 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:16,488 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:16,489 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:16,490 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:21,492 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:21,492 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:21,493 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:26,494 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:26,494 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:26,495 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:39,784 - __main__ - INFO - 
+==================================================
+2024-12-17 21:12:39,784 - __main__ - INFO - New Training Session Started
+2024-12-17 21:12:39,784 - __main__ - INFO - ==================================================
+
+2024-12-17 21:12:39,786 - __main__ - INFO - Starting server...
+2024-12-17 21:12:39,787 - src.server.coordinator - INFO - 
+============================================================
+2024-12-17 21:12:39,787 - src.server.coordinator - INFO -              Federated Learning Server Starting             
+2024-12-17 21:12:39,788 - src.server.coordinator - INFO - ============================================================
+2024-12-17 21:12:39,789 - src.server.coordinator - INFO - 
+Server Configuration:
+2024-12-17 21:12:39,790 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:39,791 - src.server.coordinator - INFO - Minimum clients required: 1
+2024-12-17 21:12:39,791 - src.server.coordinator - INFO - Total rounds planned: 10
+2024-12-17 21:12:39,792 - src.server.coordinator - INFO - Current active clients: 0
+2024-12-17 21:12:39,792 - src.server.coordinator - INFO - ------------------------------
+
+2024-12-17 21:12:39,793 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:39,794 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:39,794 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:44,042 - __main__ - INFO - 
+==================================================
+2024-12-17 21:12:44,043 - __main__ - INFO - New Training Session Started
+2024-12-17 21:12:44,043 - __main__ - INFO - ==================================================
+
+2024-12-17 21:12:44,187 - __main__ - INFO - Starting client with ID: 1
+2024-12-17 21:12:44,187 - src.client.model - INFO - Client 1 started
+2024-12-17 21:12:44,188 - src.client.model - INFO - Client config: {'data': {'batch_size': 32, 'shuffle_buffer': 1000, 'input_dim': 32}, 'model': {'type': 'feedforward', 'hidden_dims': [128, 64], 'activation': 'relu'}, 'training': {'local_epochs': 5, 'learning_rate': 0.001}}
+2024-12-17 21:12:44,190 - src.client.model - INFO - Generating training data...
+2024-12-17 21:12:44,197 - src.client.model - INFO - Generated data shapes - X: (100, 32), y: (100, 1)
+2024-12-17 21:12:44,197 - src.client.model - INFO - Starting local training...
+2024-12-17 21:12:44,198 - src.client.model - INFO - 
+Training Parameters:
+2024-12-17 21:12:44,198 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:12:44,199 - src.client.model - INFO - Input shape: (100, 32)
+2024-12-17 21:12:44,199 - src.client.model - INFO - Output shape: (100, 1)
+2024-12-17 21:12:44,200 - src.client.model - INFO - Batch size: 32
+2024-12-17 21:12:44,200 - src.client.model - INFO - Epochs: 5
+2024-12-17 21:12:44,201 - src.client.model - INFO - Learning rate: 0.001
+2024-12-17 21:12:44,201 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:12:44,795 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:44,796 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:44,796 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:45,337 - src.client.model - INFO - Epoch 1 - loss: 26.7318
+2024-12-17 21:12:45,407 - src.client.model - INFO - Epoch 2 - loss: 24.7914
+2024-12-17 21:12:45,472 - src.client.model - INFO - Epoch 3 - loss: 23.1145
+2024-12-17 21:12:45,536 - src.client.model - INFO - Epoch 4 - loss: 21.5191
+2024-12-17 21:12:45,603 - src.client.model - INFO - Epoch 5 - loss: 20.1357
+2024-12-17 21:12:45,608 - src.client.model - INFO - 
+Training Progress Summary:
+2024-12-17 21:12:45,609 - src.client.model - INFO - ------------------------------
+2024-12-17 21:12:45,610 - src.client.model - INFO - Epoch  1/5: loss = 26.7318
+2024-12-17 21:12:45,611 - src.client.model - INFO - Epoch  2/5: loss = 24.7914
+2024-12-17 21:12:45,611 - src.client.model - INFO - Epoch  3/5: loss = 23.1145
+2024-12-17 21:12:45,612 - src.client.model - INFO - Epoch  4/5: loss = 21.5191
+2024-12-17 21:12:45,613 - src.client.model - INFO - Epoch  5/5: loss = 20.1357
+2024-12-17 21:12:45,613 - src.client.model - INFO - 
+Training completed - Final loss: 20.1357
+2024-12-17 21:12:45,614 - src.client.model - INFO - 
+Model Architecture:
+2024-12-17 21:12:45,615 - src.client.model - INFO - ------------------------------
+2024-12-17 21:12:45,616 - src.client.model - INFO - Layer (Output Shape) -> Params
+2024-12-17 21:12:45,617 - src.client.model - ERROR - Error during client execution: 'Dense' object has no attribute 'output_shape'
+2024-12-17 21:12:49,798 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:49,799 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:49,799 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:54,800 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:54,801 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:54,802 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:12:59,804 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:12:59,804 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:12:59,805 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:04,806 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:04,806 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:04,807 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:09,808 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:09,809 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:09,810 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:14,812 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:14,812 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:14,813 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:19,814 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:19,815 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:19,815 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:24,816 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:24,817 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:24,817 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:29,818 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:29,819 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:29,819 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:34,821 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:34,822 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:34,823 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:39,823 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:39,824 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:39,825 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:44,827 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:44,827 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:44,828 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:46,775 - __main__ - INFO - 
+==================================================
+2024-12-17 21:13:46,776 - __main__ - INFO - New Training Session Started
+2024-12-17 21:13:46,776 - __main__ - INFO - ==================================================
+
+2024-12-17 21:13:46,955 - __main__ - INFO - Starting client with ID: 1
+2024-12-17 21:13:46,956 - src.client.model - INFO - Client 1 started
+2024-12-17 21:13:46,956 - src.client.model - INFO - Client config: {'data': {'batch_size': 32, 'shuffle_buffer': 1000, 'input_dim': 32}, 'model': {'type': 'feedforward', 'hidden_dims': [128, 64], 'activation': 'relu'}, 'training': {'local_epochs': 5, 'learning_rate': 0.001}}
+2024-12-17 21:13:46,957 - src.client.model - INFO - Generating training data...
+2024-12-17 21:13:46,965 - src.client.model - INFO - Generated data shapes - X: (100, 32), y: (100, 1)
+2024-12-17 21:13:46,966 - src.client.model - INFO - Starting local training...
+2024-12-17 21:13:46,967 - src.client.model - INFO - 
+Training Parameters:
+2024-12-17 21:13:46,967 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:13:46,968 - src.client.model - INFO - Input shape: (100, 32)
+2024-12-17 21:13:46,968 - src.client.model - INFO - Output shape: (100, 1)
+2024-12-17 21:13:46,969 - src.client.model - INFO - Batch size: 32
+2024-12-17 21:13:46,970 - src.client.model - INFO - Epochs: 5
+2024-12-17 21:13:46,970 - src.client.model - INFO - Learning rate: 0.001
+2024-12-17 21:13:46,971 - src.client.model - INFO - --------------------------------------------------
+2024-12-17 21:13:48,369 - src.client.model - INFO - Epoch 1 - loss: 27.4601
+2024-12-17 21:13:48,465 - src.client.model - INFO - Epoch 2 - loss: 25.5196
+2024-12-17 21:13:48,548 - src.client.model - INFO - Epoch 3 - loss: 24.1586
+2024-12-17 21:13:48,632 - src.client.model - INFO - Epoch 4 - loss: 22.7560
+2024-12-17 21:13:48,710 - src.client.model - INFO - Epoch 5 - loss: 21.6746
+2024-12-17 21:13:48,716 - src.client.model - INFO - 
+Training Progress Summary:
+2024-12-17 21:13:48,717 - src.client.model - INFO - ------------------------------
+2024-12-17 21:13:48,718 - src.client.model - INFO - Epoch  1/5: loss = 27.4601
+2024-12-17 21:13:48,718 - src.client.model - INFO - Epoch  2/5: loss = 25.5196
+2024-12-17 21:13:48,719 - src.client.model - INFO - Epoch  3/5: loss = 24.1586
+2024-12-17 21:13:48,720 - src.client.model - INFO - Epoch  4/5: loss = 22.7560
+2024-12-17 21:13:48,720 - src.client.model - INFO - Epoch  5/5: loss = 21.6746
+2024-12-17 21:13:48,721 - src.client.model - INFO - 
+Training completed - Final loss: 21.6746
+2024-12-17 21:13:48,722 - src.client.model - INFO - 
+Model Architecture:
+2024-12-17 21:13:48,722 - src.client.model - INFO - ------------------------------
+2024-12-17 21:13:48,723 - src.client.model - INFO - Layer (Output Shape) -> Params
+2024-12-17 21:13:48,724 - src.client.model - INFO - dense (None, 128) -> 4,224 params
+2024-12-17 21:13:48,725 - src.client.model - INFO - dense_1 (None, 64) -> 8,256 params
+2024-12-17 21:13:48,726 - src.client.model - INFO - dense_2 (None, 1) -> 65 params
+2024-12-17 21:13:48,727 - src.client.model - INFO - Total Parameters: 12,545
+2024-12-17 21:13:49,829 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:49,830 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:49,830 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:54,831 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:54,831 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:54,832 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:13:59,833 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:13:59,833 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:13:59,833 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2024-12-17 21:14:04,835 - src.server.coordinator - INFO - 
+Round 1/10
+2024-12-17 21:14:04,835 - src.server.coordinator - INFO - ------------------------------
+2024-12-17 21:14:04,836 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)

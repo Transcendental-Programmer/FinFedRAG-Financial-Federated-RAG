@@ -1,0 +1,50 @@
+# ci.yml configuration
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-cov black flake8
+    
+    - name: Run linting
+      run: |
+        black --check .
+        flake8 .
+    
+    - name: Run tests
+      run: |
+        pytest --cov=src tests/
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build Docker images
+      run: |
+        docker build -t fl-server -f docker/Dockerfile.server .
+        docker build -t fl-client -f docker/Dockerfile.client .
+

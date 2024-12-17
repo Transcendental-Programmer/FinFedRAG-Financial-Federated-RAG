@@ -1,0 +1,15 @@
+# service.yaml configuration
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fl-server-service
+  namespace: federated-learning
+spec:
+  selector:
+    app: fl-server
+  ports:
+  - port: 8000
+    targetPort: 8000
+  type: ClusterIP
+
