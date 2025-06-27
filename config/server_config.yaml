@@ -1,9 +1,15 @@
 # server_config.yaml configuration
 
 server:
+  # API server configuration
+  api:
+    host: "0.0.0.0"
+    port: 8080
+    debug: false
+    
   # Federated learning configuration
   federated:
-    min_clients: 1
+    min_clients: 2
     rounds: 10
     sample_fraction: 0.8
     
@@ -15,4 +21,17 @@ server:
   # Monitoring configuration
   monitoring:
     log_level: "INFO"
+
+# Model configuration
+model:
+  architecture: "simple_nn"
+  input_dim: 32
+  hidden_layers: [128, 64]
+  output_dim: 1
+
+# Training configuration
+training:
+  learning_rate: 0.001
+  batch_size: 32
+  local_epochs: 3
 

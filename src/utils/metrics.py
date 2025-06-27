@@ -6,6 +6,13 @@ from scipy.stats import wasserstein_distance, ks_2samp
 from sklearn.metrics import mutual_info_score, silhouette_score
 from sklearn.neighbors import NearestNeighbors
 
+def calculate_model_similarity(model_a, model_b):
+    """
+    Placeholder for model similarity calculation.
+    Returns a dummy similarity score.
+    """
+    return 1.0  # Always returns perfect similarity for now
+
 class MetricsCalculator:
     @staticmethod
     def calculate_distribution_similarity(real_data: np.ndarray, 

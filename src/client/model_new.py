@@ -14,7 +14,7 @@ class FederatedClient:
         self.client_id = str(client_id)
         self.config = config.get('client', {})
         self.model = self._build_model()
-        self.data_handler = FinancialDataHandler(self.config)
+        self.data_handler = FinancialDataHandler(config)
         
         # HTTP client for server communication
         self.server_url = server_url or self.config.get('server_url', 'http://localhost:8080')
@@ -203,9 +203,12 @@ class FederatedClient:
         
     def get_weights(self) -> List:
         """Get the model weights."""
-        return self.model.get_weights()
+        weights = self.model.get_weights()
+        # Convert to serializable format
+        return [w.tolist() for w in weights]
         
     def set_weights(self, weights: List):
         """Update local model with global weights."""
-        self.model.set_weights(weights)
-
+        # Convert from serializable format back to numpy arrays
+        np_weights = [np.array(w) for w in weights]
+        self.model.set_weights(np_weights)

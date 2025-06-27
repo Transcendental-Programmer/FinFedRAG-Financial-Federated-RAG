@@ -1,11 +1,7 @@
-# client_config.yaml configuration
-
 client:
-  # Client identification
-  id: "client_1"
+  id: "client_2"
   server_url: "http://localhost:8080"
   
-  # Data configuration
   data:
     batch_size: 32
     shuffle_buffer: 1000
@@ -13,18 +9,15 @@ client:
     input_dim: 32
     dataset_size: 100
 
-  # Model configuration
   model:
     type: "feedforward"
     hidden_dims: [128, 64]
     activation: "relu"
 
-  # Training configuration
   training:
     local_epochs: 3
     learning_rate: 0.001
     
-  # Privacy configuration
   privacy:
     differential_privacy: false
     noise_multiplier: 0.1

@@ -51,11 +51,15 @@ def main():
 
     if args.mode == 'server':
         coordinator = FederatedCoordinator(config)
-        logger.info("Starting server...")
+        logger.info("Starting federated server...")
         coordinator.start()
     else:
-        client = FederatedClient(1, config)
-        logger.info(f"Starting client with ID: {client.client_id}")
+        # Extract client ID from config or use default
+        client_id = config.get('client', {}).get('id', '1')
+        server_url = config.get('client', {}).get('server_url', 'http://localhost:8080')
+        
+        client = FederatedClient(client_id, config, server_url)
+        logger.info(f"Starting federated client with ID: {client_id}")
         client.start()
 
 if __name__ == "__main__":

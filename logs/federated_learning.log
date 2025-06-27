@@ -336,3 +336,555 @@ Round 1/10
 Round 1/10
 2024-12-17 21:14:04,835 - src.server.coordinator - INFO - ------------------------------
 2024-12-17 21:14:04,836 - src.server.coordinator - WARNING - Waiting for clients... (active: 0/1)
+2025-06-27 15:49:52,624 - __main__ - INFO - 
+==================================================
+2025-06-27 15:49:52,626 - __main__ - INFO - New Training Session Started
+2025-06-27 15:49:52,627 - __main__ - INFO - ==================================================
+
+2025-06-27 15:49:52,627 - src.server.aggregator - INFO - FederatedAggregator initialized. Weighted: True
+2025-06-27 15:49:52,627 - src.server.coordinator - INFO - FederatedCoordinator initialized.
+2025-06-27 15:49:52,627 - __main__ - INFO - Starting federated server...
+2025-06-27 15:49:52,650 - src.server.coordinator - INFO - 
+============================================================
+2025-06-27 15:49:52,650 - src.server.coordinator - INFO -              Federated Learning Server Starting             
+2025-06-27 15:49:52,651 - src.server.coordinator - INFO - ============================================================
+2025-06-27 15:49:52,651 - src.server.coordinator - INFO - 
+Server Configuration:
+2025-06-27 15:49:52,651 - src.server.coordinator - INFO - ------------------------------
+2025-06-27 15:49:52,652 - src.server.coordinator - INFO - Minimum clients required: 2
+2025-06-27 15:49:52,653 - src.server.coordinator - INFO - Total rounds planned: 10
+2025-06-27 15:49:52,653 - src.server.coordinator - INFO - Current active clients: 0
+2025-06-27 15:49:52,653 - src.server.coordinator - INFO - ------------------------------
+
+2025-06-27 15:49:53,212 - src.api.server - INFO - Federated API server started in background on 0.0.0.0:8080
+2025-06-27 15:49:53,212 - src.server.coordinator - INFO - API server started on 0.0.0.0:8080
+2025-06-27 15:49:53,439 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.68.72:8080
+2025-06-27 15:49:53,440 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-27 15:50:11,506 - __main__ - INFO - 
+==================================================
+2025-06-27 15:50:11,507 - __main__ - INFO - New Training Session Started
+2025-06-27 15:50:11,507 - __main__ - INFO - ==================================================
+
+2025-06-27 15:50:11,692 - __main__ - INFO - Starting federated client with ID: client_1
+2025-06-27 15:50:11,693 - src.client.model - INFO - Client client_1 starting...
+2025-06-27 15:50:11,758 - src.api.client - INFO - Waiting for server at http://localhost:8080...
+2025-06-27 15:50:16,772 - src.api.client - INFO - Waiting for server at http://localhost:8080...
+2025-06-27 15:50:21,780 - src.api.client - INFO - Waiting for server at http://localhost:8080...
+2025-06-27 15:50:26,788 - src.api.client - INFO - Waiting for server at http://localhost:8080...
+2025-06-27 15:50:33,840 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:50:33] "GET /health HTTP/1.1" 200 -
+2025-06-27 15:50:33,842 - src.api.client - INFO - Server is available at http://localhost:8080
+2025-06-27 15:50:35,917 - src.server.coordinator - INFO - Client client_1 registered successfully
+2025-06-27 15:50:35,918 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:50:35] "POST /register HTTP/1.1" 200 -
+2025-06-27 15:50:35,919 - src.api.client - INFO - Client client_1 registered successfully
+2025-06-27 15:50:35,920 - src.client.model - INFO - Successfully registered with server
+2025-06-27 15:50:35,920 - src.client.model - INFO - Dataset size: 100
+2025-06-27 15:50:35,921 - src.client.model - INFO - Model parameters: 12,545
+2025-06-27 15:50:37,951 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:50:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:50:45,000 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:50:45] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:50:52,045 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:50:52] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:50:59,091 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:50:59] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:06,134 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:06] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:13,174 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:13] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:20,204 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:20] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:27,245 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:27] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:34,306 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:34] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:41,340 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:41] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:48,388 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:48] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:51:55,441 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:51:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:02,484 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:09,513 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:16,574 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:23,606 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:30,641 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:37,679 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:44,770 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:51,830 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:52:58,886 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:52:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:05,936 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:12,963 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:20,012 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:20] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:27,057 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:27] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:34,097 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:34] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:41,140 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:41] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:48,205 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:48] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:53:55,235 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:53:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:02,275 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:09,327 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:16,367 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:23,411 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:30,445 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:37,480 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:44,531 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:51,590 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:54:58,628 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:54:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:05,667 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:12,701 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:19,739 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:19] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:26,782 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:33,838 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:40,881 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:47,919 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:49,344 - __main__ - INFO - 
+==================================================
+2025-06-27 15:55:49,345 - __main__ - INFO - New Training Session Started
+2025-06-27 15:55:49,345 - __main__ - INFO - ==================================================
+
+2025-06-27 15:55:49,531 - __main__ - INFO - Starting federated client with ID: client_2
+2025-06-27 15:55:49,531 - src.client.model - INFO - Client client_2 starting...
+2025-06-27 15:55:51,578 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:51] "GET /health HTTP/1.1" 200 -
+2025-06-27 15:55:51,581 - src.api.client - INFO - Server is available at http://localhost:8080
+2025-06-27 15:55:53,649 - src.server.coordinator - INFO - Client client_2 registered successfully
+2025-06-27 15:55:53,649 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:53] "POST /register HTTP/1.1" 200 -
+2025-06-27 15:55:53,651 - src.api.client - INFO - Client client_2 registered successfully
+2025-06-27 15:55:53,652 - src.client.model - INFO - Successfully registered with server
+2025-06-27 15:55:53,652 - src.client.model - INFO - Dataset size: 100
+2025-06-27 15:55:53,652 - src.client.model - INFO - Model parameters: 12,545
+2025-06-27 15:55:54,962 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:55:55,685 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:55:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:02,006 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:02,737 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:09,045 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:09,772 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:16,093 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:16,818 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:23,145 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:23,871 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:30,192 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:30,916 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:37,227 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:37,950 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:44,273 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:44,996 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:51,318 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:52,029 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:52] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:58,370 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:56:59,065 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:56:59] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:05,413 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:06,102 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:06] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:12,446 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:13,143 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:13] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:19,482 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:19] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:20,183 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:20] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:26,523 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:27,236 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:27] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:33,568 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:34,295 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:34] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:40,613 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:41,333 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:41] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:47,660 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:48,420 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:48] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:54,722 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:57:55,465 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:57:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:01,758 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:02,500 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:08,774 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:09,557 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:15,807 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:16,596 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:22,838 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:23,621 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:29,871 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:30,711 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:36,926 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:37,763 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:43,963 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:44,797 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:51,009 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:51,834 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:58,063 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:58:58,871 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:58:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:05,100 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:05,915 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:12,148 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:12,947 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:19,184 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:19] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:20,035 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:20] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:26,238 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:27,098 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:27] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:33,279 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:34,142 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:34] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:40,328 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:41,199 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:41] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:47,377 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:48,263 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:48] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:54,428 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 15:59:55,294 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 15:59:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:01,493 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:02,558 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:08,531 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:09,607 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:15,585 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:16,653 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:22,627 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:23,709 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:29,674 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:30,763 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:36,721 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:37,814 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:43,753 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:44,860 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:50,799 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:51,916 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:57,860 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:00:58,958 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:00:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:04,907 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:05,996 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:11,956 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:13,022 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:13] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:18,989 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:20,079 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:20] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:26,028 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:27,120 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:27] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:33,073 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:34,163 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:34] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:40,124 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:41,184 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:41] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:47,179 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:48,238 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:48] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:54,226 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:01:55,273 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:01:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:01,284 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:02,301 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:08,338 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:09,361 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:15,398 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:16,409 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:22,464 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:23,458 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:29,494 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:30,494 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:36,566 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:37,519 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:43,609 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:44,547 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:50,664 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:51,599 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:57,721 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:02:58,655 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:02:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:04,774 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:05,710 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:11,822 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:12,747 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:18,859 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:19,796 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:19] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:25,911 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:26,840 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:32,933 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:33,898 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:40,003 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:40,963 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:47,047 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:47,994 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:54,094 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:03:55,030 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:03:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:01,155 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:02,078 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:08,196 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:09,127 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:15,242 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:16,157 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:22,291 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:23,206 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:29,329 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:30,263 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:36,363 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:37,312 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:43,401 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:44,351 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:50,453 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:51,401 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:57,510 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:04:58,447 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:04:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:04,548 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:05,498 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:11,583 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:12,542 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:18,633 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:19,592 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:19] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:25,678 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:26,634 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:32,711 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:33,657 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:39,748 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:40,697 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:46,790 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:47,739 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:53,837 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:05:54,802 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:05:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:00,888 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:01,849 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:07,916 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:08,876 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:14,941 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:15,908 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:21,995 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:22,961 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:29,042 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:30,007 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:36,074 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:37,052 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:43,117 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:44,109 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:44] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:50,174 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:51,182 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:51] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:57,223 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:06:58,238 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:06:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:04,259 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:05,271 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:11,301 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:12,324 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:18,360 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:19,369 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:19] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:25,392 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:26,400 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:32,441 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:33,443 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:39,485 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:40,480 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:46,535 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:47,533 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:53,572 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:07:54,564 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:07:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:00,617 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:01,616 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:07,666 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:08,675 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:14,702 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:15,725 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:21,751 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:22,763 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:28,802 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:29,805 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:35,854 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:35] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:36,865 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:42,919 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:42] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:43,906 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:49,974 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:49] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:50,969 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:57,026 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:08:58,013 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:08:58] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:04,098 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:05,065 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:05] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:11,146 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:12,095 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:12] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:18,193 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:19,118 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:19] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:25,217 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:26,152 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:26] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:32,252 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:33,210 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:33] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:39,301 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:40,253 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:46,344 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:47,309 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:53,382 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:09:54,342 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:09:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:00,438 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:01,383 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:07,489 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:08,438 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:14,531 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:15,492 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:21,584 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:22,546 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:28,633 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:29,597 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:35,667 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:35] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:36,626 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:42,729 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:42] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:43,670 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:49,780 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:49] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:50,723 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:56,827 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:56] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:10:57,764 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:10:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:03,857 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:03] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:04,805 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:10,908 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:10] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:11,843 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:17,944 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:17] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:18,876 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:24,991 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:24] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:25,933 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:32,031 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:32,963 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:39,081 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:40,013 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:40] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:46,132 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:47,061 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:47] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:53,192 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:11:54,113 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:11:54] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:00,235 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:01,169 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:01] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:07,289 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:08,220 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:14,347 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:15,263 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:21,392 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:22,297 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:28,429 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:29,337 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:35,468 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:35] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:36,377 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:42,505 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:42] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:43,424 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:49,557 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:49] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:50,463 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:56,595 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:56] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:12:57,511 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:12:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:03,642 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:03] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:04,567 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:10,690 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:10] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:11,619 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:17,740 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:17] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:18,677 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:24,787 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:24] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:25,731 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:31,839 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:31] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:32,768 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:38,884 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:38] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:39,812 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:45,924 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:45] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:46,857 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:53,002 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:13:53,901 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:13:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:00,041 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:00,938 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:07,077 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:08,005 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:08] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:14,117 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:15,034 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:15] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:21,153 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:22,086 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:22] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:28,213 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:29,135 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:29] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:35,261 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:35] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:36,180 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:42,302 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:42] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:43,232 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:49,356 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:49] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:50,287 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:56,427 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:56] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:14:57,344 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:14:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:03,478 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:03] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:04,395 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:10,524 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:10] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:11,435 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:17,564 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:17] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:18,470 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:24,609 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:24] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:25,525 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:31,671 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:31] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:32,588 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:38,713 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:38] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:39,630 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:45,741 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:45] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:46,674 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:52,803 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:52] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:53,732 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:15:59,843 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:15:59] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:00,780 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:06,900 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:06] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:07,832 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:13,942 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:13] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:14,878 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:21,009 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:21,925 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:28,045 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:28,962 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:35,075 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:35] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:36,014 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:36] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:42,104 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:42] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:43,058 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:43] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:49,142 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:49] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:50,095 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:50] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:56,178 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:56] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:16:57,136 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:16:57] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:03,227 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:03] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:04,169 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:04] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:10,258 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:10] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:11,204 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:11] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:17,306 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:17] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:18,257 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:18] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:24,350 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:24] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:25,307 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:31,404 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:31] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:32,361 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:38,459 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:38] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:39,405 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:45,496 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:45] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:46,454 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:52,558 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:52] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:53,507 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:17:59,618 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:17:59] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:00,566 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:06,651 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:06] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:07,610 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:13,686 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:13] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:14,646 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:20,735 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:20] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:21,683 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:27,767 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:27] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:28,720 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:34,828 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:34] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:35,750 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:35] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:41,851 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:41] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:42,791 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:42] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:48,887 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:48] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:49,824 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:49] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:55,939 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:18:56,869 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:18:56] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:02,987 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:03,917 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:03] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:10,036 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:10] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:10,963 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:10] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:17,093 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:17] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:17,998 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:17] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:24,143 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:24] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:25,043 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:25] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:31,184 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:31] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:32,104 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:32] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:38,237 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:38] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:39,155 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:39] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:45,276 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:45] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:46,197 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:46] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:52,305 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:52] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:53,219 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:53] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:19:59,338 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:19:59] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:00,255 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:00] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:06,385 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:06] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:07,283 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:07] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:13,426 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:13] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:14,339 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:14] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:20,488 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:20] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:21,389 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:21] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:27,536 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:27] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:28,435 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:28] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:34,568 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:34] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:35,463 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:35] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:41,617 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:41] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:42,507 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:42] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:48,656 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:48] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:49,573 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:49] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:55,713 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:55] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:20:56,623 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:20:56] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:02,763 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:02] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:03,682 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:03] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:09,806 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:09] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:10,739 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:10] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:16,835 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:16] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:17,761 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:17] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:23,872 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:23] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:24,793 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:24] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:30,924 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:30] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:31,845 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:31] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:37,972 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:37] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:38,871 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:38] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:45,019 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:45] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:45,920 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:45] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:52,056 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:52] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:52,960 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:52] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:59,094 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:59] "GET /training_status HTTP/1.1" 200 -
+2025-06-27 16:21:59,992 - werkzeug - INFO - 127.0.0.1 - - [27/Jun/2025 16:21:59] "GET /training_status HTTP/1.1" 200 -

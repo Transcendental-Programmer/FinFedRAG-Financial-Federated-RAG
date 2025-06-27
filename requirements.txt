@@ -18,9 +18,13 @@ tensorflow-privacy
 pysyft
 
 # API and web
-flask
+flask>=2.0.0
 fastapi
 uvicorn
+requests>=2.25.0
+
+# Configuration and utilities
+pyyaml>=5.4.0
 
 # Testing and development
 pytest
