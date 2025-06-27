@@ -20,11 +20,9 @@ pip install -r requirements.txt
 
 ## Usage
 
-[Add usage instructions here]
 
 ## Project Structure
 
-[Add project structure description here]
 
 ## License
 
@@ -32,4 +30,3 @@ MIT
 
 ## Contributing
 
-[Add contributing guidelines here]
