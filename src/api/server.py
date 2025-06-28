@@ -149,6 +149,42 @@ class FederatedAPI:
                 logger.error(f"Error processing RAG query: {str(e)}")
                 return jsonify({'error': str(e)}), 500
     
+        @self.app.route('/predict', methods=['POST'])
+        def predict():
+            """Predict using the current global model."""
+            try:
+                data = request.get_json()
+                features = data.get('features')
+                if features is None or not isinstance(features, list) or len(features) != 32:
+                    return jsonify({'error': 'features must be a list of 32 floats'}), 400
+
+                # Get global model weights
+                model_weights = self.coordinator.get_global_model()
+                if model_weights is None:
+                    return jsonify({'error': 'Global model not available yet'}), 503
+
+                # Build the model (same as client)
+                import tensorflow as tf
+                import numpy as np
+                input_dim = 32
+                model = tf.keras.Sequential([
+                    tf.keras.layers.Input(shape=(input_dim,)),
+                    tf.keras.layers.Dense(128, activation='relu'),
+                    tf.keras.layers.Dense(64, activation='relu'),
+                    tf.keras.layers.Dense(1)
+                ])
+                model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), loss='mse')
+                model.set_weights([np.array(w) for w in model_weights])
+
+                # Prepare input and predict
+                x = np.array(features, dtype=np.float32).reshape(1, -1)
+                pred = model.predict(x)
+                prediction = float(pred[0, 0])
+                return jsonify({'prediction': prediction})
+            except Exception as e:
+                logger.error(f"Error in prediction endpoint: {str(e)}")
+                return jsonify({'error': str(e)}), 500
+    
     def run(self, debug: bool = False):
         """Run the API server"""
         logger.info(f"Starting Federated API server on {self.host}:{self.port}")
