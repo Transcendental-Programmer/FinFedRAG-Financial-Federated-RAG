@@ -22,6 +22,13 @@ class SimulatedFederatedSystem:
         self.active_clients = 0
         self.clients_ready = 0
         self.model_weights = [random.random() for _ in range(100)]
+        # Kubernetes simulation data
+        self.k8s_pods = {
+            "fl-server": {"status": "Running", "cpu": "20%", "memory": "256MB"},
+            "fl-client-1": {"status": "Running", "cpu": "15%", "memory": "128MB"},
+            "fl-client-2": {"status": "Running", "cpu": "15%", "memory": "128MB"},
+            "fl-client-3": {"status": "Pending", "cpu": "0%", "memory": "0MB"}
+        }
         
     def register_client(self, client_id, client_info):
         self.clients[client_id] = {
@@ -31,6 +38,11 @@ class SimulatedFederatedSystem:
             'status': 'active'
         }
         self.active_clients = len(self.clients)
+        # Update Kubernetes simulation
+        if self.active_clients <= 3:
+            self.k8s_pods[f"fl-client-{self.active_clients}"]["status"] = "Running"
+            self.k8s_pods[f"fl-client-{self.active_clients}"]["cpu"] = "15%"
+            self.k8s_pods[f"fl-client-{self.active_clients}"]["memory"] = "128MB"
         return True
         
     def get_training_status(self):
@@ -46,6 +58,11 @@ class SimulatedFederatedSystem:
     def start_training(self):
         self.training_active = True
         self.current_round = 1
+        # Update Kubernetes simulation
+        self.k8s_pods["fl-server"]["cpu"] = "35%"
+        for i in range(1, min(4, self.active_clients + 1)):
+            if self.k8s_pods[f"fl-client-{i}"]["status"] == "Running":
+                self.k8s_pods[f"fl-client-{i}"]["cpu"] = "25%"
         
     def simulate_training_round(self):
         if self.training_active and self.current_round < self.total_rounds:
@@ -54,6 +71,13 @@ class SimulatedFederatedSystem:
             self.global_model_accuracy += random.uniform(0.01, 0.03)
             self.global_model_accuracy = min(self.global_model_accuracy, 0.95)
             self.clients_ready = random.randint(2, min(5, self.active_clients))
+            # Update Kubernetes simulation
+            self.k8s_pods["fl-server"]["cpu"] = f"{30 + random.randint(5, 15)}%"
+            self.k8s_pods["fl-server"]["memory"] = f"{256 + self.current_round * 10}MB"
+            for i in range(1, min(4, self.active_clients + 1)):
+                if self.k8s_pods[f"fl-client-{i}"]["status"] == "Running":
+                    self.k8s_pods[f"fl-client-{i}"]["cpu"] = f"{20 + random.randint(5, 15)}%"
+                    self.k8s_pods[f"fl-client-{i}"]["memory"] = f"{128 + self.current_round * 5}MB"
             
     def predict(self, features):
         # Simulate model prediction
@@ -64,6 +88,10 @@ class SimulatedFederatedSystem:
         base_score = sum(f * w for f, w in zip(features, self.model_weights[:32]))
         noise = random.uniform(-50, 50)
         credit_score = max(300, min(850, base_score * 100 + 500 + noise))
+        
+        # Update Kubernetes simulation for prediction
+        self.k8s_pods["fl-server"]["cpu"] = f"{30 + random.randint(5, 10)}%"
+        
         return credit_score
 
 # Global simulated system
@@ -136,6 +164,8 @@ if 'training_history' not in st.session_state:
     st.session_state.training_history = []
 if 'debug_messages' not in st.session_state:
     st.session_state.debug_messages = []
+if 'kubernetes_view' not in st.session_state:
+    st.session_state.kubernetes_view = False
 
 # System Status in sidebar
 with st.sidebar.expander("System Status"):
@@ -156,6 +186,17 @@ with st.sidebar.expander("Debug Information"):
     
     if st.button("Clear Debug Logs"):
         st.session_state.debug_messages = []
+
+# Kubernetes monitoring in sidebar
+with st.sidebar.expander("Kubernetes Monitoring"):
+    st.write("**Simulated Kubernetes Cluster**")
+    
+    if st.button("Toggle Kubernetes View"):
+        st.session_state.kubernetes_view = not st.session_state.kubernetes_view
+    
+    st.success("✅ Kubernetes Cluster Running")
+    st.info(f"Namespace: federated-learning")
+    st.info(f"Pods Running: {system.active_clients + 1}")  # Clients + Server
 
 # Sidebar educational content
 with st.sidebar.expander("About Federated Learning"):
@@ -291,46 +332,87 @@ if st.session_state.client_simulator:
     else:
         st.sidebar.warning("Disconnected")
 
-# System Information
-st.header("System Information")
-st.markdown("""
-### 🚀 **Complete Federated Learning System**
+# Kubernetes visualization (if enabled)
+if st.session_state.kubernetes_view:
+    st.header("Kubernetes Cluster Visualization")
+    
+    # Create a simple visualization of the Kubernetes cluster
+    st.markdown("""
+    ```
+    ┌─────────────────────────────────────────────────────────────┐
+    │                Kubernetes Cluster (Simulated)               │
+    │                                                             │
+    │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
+    │  │ fl-server   │  │ fl-client-1 │  │ fl-client-2 │         │
+    │  │ Pod         │  │ Pod         │  │ Pod         │         │
+    │  │ Running ✅  │  │ Running ✅  │  │ Running ✅  │         │
+    │  └─────────────┘  └─────────────┘  └─────────────┘         │
+    │                                                             │
+    │  ┌─────────────────────────────────────────────────┐       │
+    │  │ fl-server-service                               │       │
+    │  │ Type: ClusterIP                                 │       │
+    │  │ Port: 8080:8000                                 │       │
+    │  └─────────────────────────────────────────────────┘       │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    ```
+    """)
+    
+    # Show simulated Kubernetes metrics
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.subheader("Pod Status")
+        pod_status = {}
+        for pod_name, pod_data in system.k8s_pods.items():
+            pod_status[pod_name] = pod_data["status"]
+        st.json(pod_status)
+    
+    with col2:
+        st.subheader("Resource Usage")
+        resource_usage = {
+            pod_name: {
+                "CPU": pod_data["cpu"],
+                "Memory": pod_data["memory"]
+            } for pod_name, pod_data in system.k8s_pods.items()
+        }
+        st.json(resource_usage)
+    
+    # Kubernetes commands
+    st.subheader("Kubernetes Commands")
+    with st.expander("Available Commands"):
+        st.code("""
+# View all pods
+kubectl get pods -n federated-learning
 
-This demo showcases a **fully functional federated learning system** running entirely on Hugging Face Spaces:
+# View all services
+kubectl get services -n federated-learning
 
-#### **What's Running:**
-- ✅ **Federated Server**: Coordinates training across multiple clients
-- ✅ **Client Simulator**: Participates in federated learning rounds
-- ✅ **Model Aggregation**: FedAvg algorithm for combining model updates
-- ✅ **Privacy Protection**: No raw data sharing between participants
-- ✅ **Real-time Training**: Live training progress visualization
-- ✅ **Credit Scoring**: Predictions from the federated model
+# View pod logs
+kubectl logs -f deployment/fl-server -n federated-learning
 
-#### **How It Works:**
-1. **Client Registration**: Banks register with the federated server
-2. **Local Training**: Each client trains on their private data
-3. **Model Updates**: Only model weights are shared (not data)
-4. **Aggregation**: Server combines updates using federated averaging
-5. **Global Model**: Updated model is distributed to all clients
-6. **Predictions**: Users get credit scores from the collaborative model
-
-#### **Privacy Benefits:**
-- 🔒 **Data Never Leaves**: Each bank's data stays local
-- 🔒 **Model Updates Only**: Only gradients/weights are shared
-- 🔒 **No Central Database**: No single point of data collection
-- 🔒 **Collaborative Learning**: Multiple banks improve the model together
-
-#### **Production Ready Features:**
-- 🏗️ **Kubernetes Deployment**: Ready for production scaling
-- 🐳 **Docker Containers**: Containerized for easy deployment
-- 📊 **Monitoring**: Real-time training metrics and health checks
-- 🔧 **Configuration**: Flexible config management
-- 🧪 **Testing**: Comprehensive test suite
-
-**This is a complete, production-ready federated learning system!** 🎯
-""")
+# Scale deployment
+kubectl scale deployment/fl-client --replicas=5 -n federated-learning
+        """)
+    
+    # Kubernetes deployment visualization
+    st.subheader("Deployment Architecture")
+    st.markdown("""
+    ```mermaid
+    graph TD
+        A[Kubernetes Cluster] --> B[federated-learning Namespace]
+        B --> C[fl-server Deployment]
+        B --> D[fl-client Deployment]
+        B --> E[fl-server-service Service]
+        C --> F[fl-server Pod]
+        D --> G[fl-client-1 Pod]
+        D --> H[fl-client-2 Pod]
+        D --> I[fl-client-3 Pod]
+        E --> F
+    ```
+    """)
 
 # Auto-refresh for training simulation
 if st.session_state.federated_system.training_active:
     time.sleep(2)
-    st.experimental_rerun() 
+    st.rerun() 
