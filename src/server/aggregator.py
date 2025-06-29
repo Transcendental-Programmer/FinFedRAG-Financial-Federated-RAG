@@ -22,6 +22,38 @@ class FederatedAggregator:
         self.weighted = agg_config.get('weighted', True)
         logger.info(f"FederatedAggregator initialized. Weighted: {self.weighted}")
     
+    def federated_averaging(self, updates: List[Dict]) -> List:
+        """Perform federated averaging (FedAvg) on model weights."""
+        logger = logging.getLogger(__name__)
+        logger.info(f"Performing federated averaging on {len(updates)} client updates")
+        
+        if not updates:
+            logger.warning("No updates provided for federated averaging")
+            return None
+        
+        # Calculate total samples across all clients
+        total_samples = sum(update['size'] for update in updates)
+        logger.debug(f"Total samples across clients: {total_samples}")
+        
+        # Initialize aggregated weights with zeros
+        first_weights = updates[0]['weights']
+        aggregated_weights = [np.zeros_like(w) for w in first_weights]
+        
+        # Weighted average of model weights
+        for update in updates:
+            client_weights = update['weights']
+            client_size = update['size']
+            weight_factor = client_size / total_samples if self.weighted else 1.0 / len(updates)
+            
+            logger.debug(f"Client {update['client_id']}: size={client_size}, weight_factor={weight_factor}")
+            
+            # Add weighted contribution to aggregated weights
+            for i, (agg_w, client_w) in enumerate(zip(aggregated_weights, client_weights)):
+                aggregated_weights[i] += np.array(client_w) * weight_factor
+        
+        logger.info("Federated averaging completed successfully")
+        return aggregated_weights
+    
     def compute_metrics(self, client_metrics: List[Dict]) -> Dict:
         logger = logging.getLogger(__name__)
         logger.debug(f"Computing metrics for {len(client_metrics)} clients")

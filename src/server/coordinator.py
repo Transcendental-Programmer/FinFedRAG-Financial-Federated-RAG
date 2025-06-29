@@ -20,10 +20,14 @@ class FederatedCoordinator:
         self.global_model_weights = None
         self.current_round = 0
         self.training_active = False
-        self.min_clients = config.get('server', {}).get('federated', {}).get('min_clients', 2)
-        self.rounds = config.get('server', {}).get('federated', {}).get('rounds', 10)
+        
+        # Extract federated learning parameters
+        self.min_clients = config.get('federated', {}).get('min_clients', 2)
+        self.rounds = config.get('federated', {}).get('rounds', 10)
+        
         # Debug: log config structure
         logger.debug(f"Coordinator received config: {config}")
+        
         # Robustly extract aggregation config
         agg_config = None
         if 'aggregation' in config:
@@ -33,14 +37,51 @@ class FederatedCoordinator:
         else:
             logger.error(f"No 'aggregation' key found in config for FederatedAggregator: {config}")
             raise ValueError("'aggregation' config section is required for FederatedAggregator")
+        
         logger.debug(f"Passing aggregation config to FederatedAggregator: {agg_config}")
         try:
             self.aggregator = FederatedAggregator(agg_config)
         except Exception as e:
             logger.error(f"Error initializing FederatedAggregator: {e}")
             raise
+        
+        # Initialize global model weights with random values
+        self._initialize_global_model()
+        
         self.lock = threading.Lock()  # Thread safety for concurrent API calls
         logger.info("FederatedCoordinator initialized.")
+    
+    def _initialize_global_model(self):
+        """Initialize global model weights with random values."""
+        logger = logging.getLogger(__name__)
+        try:
+            # Build a simple model to get initial weights
+            input_dim = self.config.get('model', {}).get('input_dim', 32)
+            hidden_layers = self.config.get('model', {}).get('hidden_layers', [128, 64])
+            
+            model = tf.keras.Sequential([
+                tf.keras.layers.Input(shape=(input_dim,)),
+                tf.keras.layers.Dense(hidden_layers[0], activation='relu'),
+                tf.keras.layers.Dense(hidden_layers[1], activation='relu'),
+                tf.keras.layers.Dense(1)
+            ])
+            model.compile(optimizer='adam', loss='mse')
+            
+            self.global_model_weights = model.get_weights()
+            logger.info(f"Global model initialized with {len(self.global_model_weights)} weight layers")
+            
+        except Exception as e:
+            logger.error(f"Error initializing global model: {e}")
+            # Fallback to simple random weights
+            self.global_model_weights = [
+                np.random.randn(32, 128).astype(np.float32),
+                np.random.randn(128).astype(np.float32),
+                np.random.randn(128, 64).astype(np.float32),
+                np.random.randn(64).astype(np.float32),
+                np.random.randn(64, 1).astype(np.float32),
+                np.random.randn(1).astype(np.float32)
+            ]
+            logger.info("Using fallback random weights for global model")
         
     def register_client(self, client_id: str, client_info: Dict[str, Any] = None) -> bool:
         """Register a new client."""
@@ -122,6 +163,13 @@ class FederatedCoordinator:
             logger = logging.getLogger(__name__)
             logger.error(f"Error during model aggregation: {str(e)}")
     
+    def _count_active_clients(self) -> int:
+        """Count active clients (seen in last 60 seconds)"""
+        current_time = time.time()
+        active_count = sum(1 for client in self.clients.values() 
+                          if current_time - client['last_seen'] < 60)
+        return active_count
+    
     def start(self):
         """Start the federated learning process with API server"""
         logger = logging.getLogger(__name__)
@@ -146,7 +194,7 @@ class FederatedCoordinator:
         try:
             from ..api.server import FederatedAPI
             
-            api_config = self.config.get('server', {}).get('api', {})
+            api_config = self.config.get('api', {})
             host = api_config.get('host', '0.0.0.0')
             port = api_config.get('port', 8080)
             
