@@ -11,6 +11,6 @@ tags:
 - machine-learning
 - privacy
 pinned: false
-short_description: Federated Learning Credit Scoring Demo with Privacy-Preserving Model Training
+short_description: Federated Learning Credit Scoring Demo 
 license: mit
 ---
