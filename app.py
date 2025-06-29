@@ -4,9 +4,14 @@ import numpy as np
 import time
 import threading
 import json
+import logging
 from datetime import datetime
 
-# Client Simulator Class (moved to top)
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+# Client Simulator Class
 class ClientSimulator:
     def __init__(self, server_url):
         self.server_url = server_url
@@ -14,18 +19,21 @@ class ClientSimulator:
         self.is_running = False
         self.thread = None
         self.last_update = "Never"
+        self.last_error = None
         
     def start(self):
         self.is_running = True
         self.thread = threading.Thread(target=self._run_client, daemon=True)
         self.thread.start()
+        logger.info(f"Client simulator started for {self.server_url}")
         
     def stop(self):
         self.is_running = False
+        logger.info("Client simulator stopped")
         
     def _run_client(self):
         try:
-            # Register with server
+            logger.info(f"Attempting to register client {self.client_id} with server {self.server_url}")
             client_info = {
                 'dataset_size': 100,
                 'model_params': 10000,
@@ -33,9 +41,11 @@ class ClientSimulator:
             }
             
             resp = requests.post(f"{self.server_url}/register", 
-                               json={'client_id': self.client_id, 'client_info': client_info})
+                               json={'client_id': self.client_id, 'client_info': client_info},
+                               timeout=10)
             
             if resp.status_code == 200:
+                logger.info(f"Successfully registered client {self.client_id}")
                 st.session_state.training_history.append({
                     'round': 0,
                     'active_clients': 1,
@@ -43,15 +53,13 @@ class ClientSimulator:
                     'timestamp': datetime.now()
                 })
                 
-                # Simulate client participation
                 while self.is_running:
                     try:
-                        # Get training status
-                        status = requests.get(f"{self.server_url}/training_status")
+                        logger.debug(f"Checking training status from {self.server_url}/training_status")
+                        status = requests.get(f"{self.server_url}/training_status", timeout=5)
                         if status.status_code == 200:
                             data = status.json()
-                            
-                            # Update training history
+                            logger.debug(f"Training status: {data}")
                             st.session_state.training_history.append({
                                 'round': data.get('current_round', 0),
                                 'active_clients': data.get('active_clients', 0),
@@ -59,56 +67,127 @@ class ClientSimulator:
                                 'timestamp': datetime.now()
                             })
                             
-                            # Keep only last 50 entries
                             if len(st.session_state.training_history) > 50:
                                 st.session_state.training_history = st.session_state.training_history[-50:]
+                        else:
+                            logger.warning(f"Training status returned {status.status_code}: {status.text}")
                         
-                        time.sleep(5)  # Check every 5 seconds
+                        time.sleep(5)
                         
+                    except requests.exceptions.Timeout:
+                        logger.warning("Timeout while checking training status")
+                        self.last_error = "Timeout connecting to server"
+                        time.sleep(10)
+                    except requests.exceptions.ConnectionError as e:
+                        logger.error(f"Connection error while checking training status: {e}")
+                        self.last_error = f"Connection error: {e}"
+                        time.sleep(10)
                     except Exception as e:
-                        print(f"Client simulator error: {e}")
+                        logger.error(f"Unexpected error in client simulator: {e}")
+                        self.last_error = f"Unexpected error: {e}"
                         time.sleep(10)
                         
+        except requests.exceptions.ConnectionError as e:
+            logger.error(f"Failed to connect to server {self.server_url}: {e}")
+            self.last_error = f"Failed to connect to server: {e}"
+            self.is_running = False
         except Exception as e:
-            print(f"Failed to start client simulator: {e}")
+            logger.error(f"Failed to start client simulator: {e}")
+            self.last_error = f"Failed to start: {e}"
             self.is_running = False
 
+def check_server_health(server_url):
+    """Check if server is reachable and healthy"""
+    try:
+        logger.debug(f"Checking server health at {server_url}/health")
+        resp = requests.get(f"{server_url}/health", timeout=5)
+        if resp.status_code == 200:
+            logger.info("Server is healthy")
+            return True, resp.json()
+        else:
+            logger.warning(f"Server health check returned {resp.status_code}")
+            return False, f"HTTP {resp.status_code}: {resp.text}"
+    except requests.exceptions.Timeout:
+        logger.error("Server health check timeout")
+        return False, "Timeout"
+    except requests.exceptions.ConnectionError as e:
+        logger.error(f"Server health check connection error: {e}")
+        return False, f"Connection refused: {e}"
+    except Exception as e:
+        logger.error(f"Server health check unexpected error: {e}")
+        return False, f"Unexpected error: {e}"
+
 st.set_page_config(page_title="Federated Credit Scoring Demo", layout="centered")
-st.title("Federated Credit Scoring Demo (Federated Learning)")
+st.title("Federated Credit Scoring Demo")
 
 # Sidebar configuration
 st.sidebar.header("Configuration")
 SERVER_URL = st.sidebar.text_input("Server URL", value="http://localhost:8080")
-DEMO_MODE = st.sidebar.checkbox("Demo Mode (No Server Required)", value=True)
+DEMO_MODE = st.sidebar.checkbox("Demo Mode", value=True)
 
 # Initialize session state
 if 'client_simulator' not in st.session_state:
     st.session_state.client_simulator = None
 if 'training_history' not in st.session_state:
     st.session_state.training_history = []
+if 'debug_messages' not in st.session_state:
+    st.session_state.debug_messages = []
 
-st.markdown("""
-This demo shows how multiple banks can collaboratively train a credit scoring model using federated learning, without sharing raw data.
-Enter customer features below to get a credit score prediction from the federated model.
-""")
-
-# --- Client Simulator ---
-st.sidebar.header("Client Simulator")
-if st.sidebar.button("Start Client Simulator"):
+# Debug section in sidebar
+with st.sidebar.expander("Debug Information"):
+    st.write("**Server Status:**")
     if not DEMO_MODE:
-        st.session_state.client_simulator = ClientSimulator(SERVER_URL)
-        st.session_state.client_simulator.start()
-        st.sidebar.success("Client simulator started!")
+        is_healthy, health_info = check_server_health(SERVER_URL)
+        if is_healthy:
+            st.success("✅ Server is healthy")
+            st.json(health_info)
+        else:
+            st.error(f"❌ Server error: {health_info}")
+    
+    st.write("**Recent Logs:**")
+    if st.session_state.debug_messages:
+        for msg in st.session_state.debug_messages[-5:]:  # Show last 5 messages
+            st.text(msg)
     else:
-        st.sidebar.warning("Client simulator only works in Real Mode")
+        st.text("No debug messages yet")
+    
+    if st.button("Clear Debug Logs"):
+        st.session_state.debug_messages = []
 
-if st.sidebar.button("Stop Client Simulator"):
+# Sidebar educational content
+with st.sidebar.expander("About Federated Learning"):
+    st.markdown("""
+    **Traditional ML:** Banks send data to central server → Privacy risk
+    
+    **Federated Learning:** 
+    - Banks keep data locally
+    - Only model updates are shared
+    - Collaborative learning without data sharing
+    """)
+
+# Client Simulator in sidebar
+st.sidebar.header("Client Simulator")
+if st.sidebar.button("Start Client"):
+    if not DEMO_MODE:
+        try:
+            st.session_state.client_simulator = ClientSimulator(SERVER_URL)
+            st.session_state.client_simulator.start()
+            st.sidebar.success("Client started!")
+            st.session_state.debug_messages.append(f"{datetime.now()}: Client simulator started")
+        except Exception as e:
+            st.sidebar.error(f"Failed to start client: {e}")
+            st.session_state.debug_messages.append(f"{datetime.now()}: Failed to start client - {e}")
+    else:
+        st.sidebar.warning("Only works in Real Mode")
+
+if st.sidebar.button("Stop Client"):
     if st.session_state.client_simulator:
         st.session_state.client_simulator.stop()
         st.session_state.client_simulator = None
-        st.sidebar.success("Client simulator stopped!")
+        st.sidebar.success("Client stopped!")
+        st.session_state.debug_messages.append(f"{datetime.now()}: Client simulator stopped")
 
-# --- Feature Input Form ---
+# Main content - focused on core functionality
 st.header("Enter Customer Features")
 with st.form("feature_form"):
     features = []
@@ -119,124 +198,103 @@ with st.form("feature_form"):
             features.append(val)
     submitted = st.form_submit_button("Predict Credit Score")
 
-# --- Prediction ---
+# Prediction results
 if submitted:
+    logger.info(f"Prediction requested with {len(features)} features")
     if DEMO_MODE:
-        # Demo mode - simulate prediction
-        with st.spinner("Processing prediction..."):
-            time.sleep(1)  # Simulate processing time
-        
-        # Simple demo prediction based on feature values
-        demo_prediction = sum(features) / len(features) * 100 + 500  # Scale to credit score range
-        st.success(f"Demo Prediction: Credit Score = {demo_prediction:.2f}")
-        st.info("💡 This is a demo prediction. In a real federated system, this would come from the trained model.")
-        
-        # Show what would happen in real mode
-        st.markdown("---")
-        st.markdown("**What happens in real federated learning:**")
-        st.markdown("1. Your features are sent to the federated server")
-        st.markdown("2. Server uses the global model (trained by multiple banks)")
-        st.markdown("3. Prediction is returned without exposing any bank's data")
-        
+        with st.spinner("Processing..."):
+            time.sleep(1)
+        demo_prediction = sum(features) / len(features) * 100 + 500
+        st.success(f"Predicted Credit Score: {demo_prediction:.2f}")
+        st.session_state.debug_messages.append(f"{datetime.now()}: Demo prediction: {demo_prediction:.2f}")
     else:
-        # Real mode - connect to server
         try:
-            with st.spinner("Connecting to federated server..."):
+            logger.info(f"Sending prediction request to {SERVER_URL}/predict")
+            with st.spinner("Connecting to server..."):
                 resp = requests.post(f"{SERVER_URL}/predict", json={"features": features}, timeout=10)
             
             if resp.status_code == 200:
                 prediction = resp.json().get("prediction")
                 st.success(f"Predicted Credit Score: {prediction:.2f}")
-                st.info("🎯 This prediction comes from the federated model trained by multiple banks!")
+                st.session_state.debug_messages.append(f"{datetime.now()}: Real prediction: {prediction:.2f}")
+                logger.info(f"Prediction successful: {prediction}")
             else:
-                st.error(f"Prediction failed: {resp.json().get('error', 'Unknown error')}")
+                error_msg = f"Prediction failed: {resp.json().get('error', 'Unknown error')}"
+                st.error(error_msg)
+                st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+                logger.error(f"Prediction failed with status {resp.status_code}: {resp.text}")
+        except requests.exceptions.Timeout:
+            error_msg = "Timeout connecting to server"
+            st.error(error_msg)
+            st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+            logger.error("Prediction request timeout")
+        except requests.exceptions.ConnectionError as e:
+            error_msg = f"Connection error: {e}"
+            st.error(error_msg)
+            st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+            logger.error(f"Prediction connection error: {e}")
         except Exception as e:
-            st.error(f"Error connecting to server: {e}")
-            st.info("💡 Try enabling Demo Mode to see the interface without a server.")
+            error_msg = f"Unexpected error: {e}"
+            st.error(error_msg)
+            st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+            logger.error(f"Prediction unexpected error: {e}")
 
-# --- Training Progress ---
-st.header("Federated Training Progress")
-
+# Training progress - simplified
+st.header("Training Progress")
 if DEMO_MODE:
-    # Demo training progress
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("Current Round", "3/10")
+        st.metric("Round", "3/10")
     with col2:
-        st.metric("Active Clients", "3")
+        st.metric("Clients", "3")
     with col3:
-        st.metric("Model Accuracy", "85.2%")
+        st.metric("Accuracy", "85.2%")
     with col4:
-        st.metric("Training Status", "Active")
-    
-    st.info("💡 Demo mode showing simulated training progress. In real federated learning, multiple banks would be training collaboratively.")
-    
+        st.metric("Status", "Active")
 else:
-    # Real training progress
     try:
+        logger.debug(f"Fetching training status from {SERVER_URL}/training_status")
         status = requests.get(f"{SERVER_URL}/training_status", timeout=5)
         if status.status_code == 200:
             data = status.json()
+            logger.debug(f"Training status received: {data}")
             col1, col2, col3, col4 = st.columns(4)
             with col1:
-                st.metric("Current Round", f"{data.get('current_round', 0)}/{data.get('total_rounds', 10)}")
+                st.metric("Round", f"{data.get('current_round', 0)}/{data.get('total_rounds', 10)}")
             with col2:
-                st.metric("Active Clients", data.get('active_clients', 0))
+                st.metric("Clients", data.get('active_clients', 0))
             with col3:
-                st.metric("Clients Ready", data.get('clients_ready', 0))
+                st.metric("Ready", data.get('clients_ready', 0))
             with col4:
-                st.metric("Training Status", "Active" if data.get('training_active', False) else "Inactive")
-            
-            # Show training history
-            if st.session_state.training_history:
-                st.subheader("Training History")
-                history_df = st.session_state.training_history
-                st.line_chart(history_df.set_index('round')[['active_clients', 'clients_ready']])
+                st.metric("Status", "Active" if data.get('training_active', False) else "Inactive")
         else:
-            st.warning("Could not fetch training status.")
+            error_msg = f"Training status failed: HTTP {status.status_code}"
+            st.warning(error_msg)
+            st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+            logger.warning(f"Training status returned {status.status_code}: {status.text}")
+    except requests.exceptions.Timeout:
+        error_msg = "Training status timeout"
+        st.warning(error_msg)
+        st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+        logger.warning("Training status request timeout")
+    except requests.exceptions.ConnectionError as e:
+        error_msg = f"Training status connection error: {e}"
+        st.warning(error_msg)
+        st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+        logger.error(f"Training status connection error: {e}")
     except Exception as e:
-        st.warning(f"Could not connect to server for training status: {e}")
+        error_msg = f"Training status unexpected error: {e}"
+        st.warning(error_msg)
+        st.session_state.debug_messages.append(f"{datetime.now()}: {error_msg}")
+        logger.error(f"Training status unexpected error: {e}")
 
-# --- Server Health Check ---
-if not DEMO_MODE:
-    st.header("Server Health")
-    try:
-        health = requests.get(f"{SERVER_URL}/health", timeout=5)
-        if health.status_code == 200:
-            health_data = health.json()
-            st.success(f"✅ Server is healthy")
-            st.json(health_data)
-        else:
-            st.error("❌ Server health check failed")
-    except Exception as e:
-        st.error(f"❌ Cannot connect to server: {e}")
-
-# --- How it works ---
-st.header("How Federated Learning Works")
-st.markdown("""
-**Traditional ML:** All banks send their data to a central server → Privacy risk ❌
-
-**Federated Learning:** 
-1. Each bank keeps their data locally ✅
-2. Banks train models on their own data ✅  
-3. Only model updates (not data) are shared ✅
-4. Server aggregates updates to create global model ✅
-5. Global model is distributed back to all banks ✅
-
-**Result:** Collaborative learning without data sharing! 🎯
-""")
-
-# --- Client Simulator Status ---
+# Client status in sidebar
 if st.session_state.client_simulator and not DEMO_MODE:
-    st.header("Client Simulator Status")
+    st.sidebar.header("Client Status")
     if st.session_state.client_simulator.is_running:
-        st.success("🟢 Client simulator is running and participating in federated learning")
-        st.info(f"Client ID: {st.session_state.client_simulator.client_id}")
-        st.info(f"Last update: {st.session_state.client_simulator.last_update}")
+        st.sidebar.success("Connected")
+        st.sidebar.info(f"ID: {st.session_state.client_simulator.client_id}")
+        if st.session_state.client_simulator.last_error:
+            st.sidebar.error(f"Last Error: {st.session_state.client_simulator.last_error}")
     else:
-        st.warning("🔴 Client simulator is not running")
-
-st.markdown("---")
-st.markdown("""
-*This is a demonstration of federated learning concepts. For full functionality, run the federated server and clients locally.*
-""") 
+        st.sidebar.warning("Disconnected") 
