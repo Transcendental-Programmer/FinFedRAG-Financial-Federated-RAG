@@ -1,3 +1,20 @@
+---
+title: Federated Credit Scoring
+emoji: 🚀
+colorFrom: red
+colorTo: red
+sdk: streamlit
+app_port: 8501
+tags:
+- streamlit
+- federated-learning
+- machine-learning
+- privacy
+pinned: false
+short_description: Federated Learning Credit Scoring Demo with Privacy-Preserving Model Training
+license: mit
+---
+
 # Federated Learning for Privacy-Preserving Financial Data Generation with RAG Integration
 
 This project implements a federated learning framework combined with a Retrieval-Augmented Generation (RAG) system to generate privacy-preserving synthetic financial data.
