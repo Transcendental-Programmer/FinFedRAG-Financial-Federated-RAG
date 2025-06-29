@@ -4,32 +4,34 @@ This project implements a federated learning framework combined with a Retrieval
 
 ## Features
 
-- Federated Learning using TensorFlow Federated
+- Federated Learning using TensorFlow
 - Privacy-preserving data generation using VAE/GAN
 - RAG integration for enhanced data quality
 - Secure Multi-Party Computation (SMPC)
 - Differential Privacy implementation
 - Kubernetes-based deployment
 - Comprehensive monitoring and logging
+- **NEW: Interactive Web Demo** - Try it out without setup!
+
+## Quick Demo (No Installation Required)
+
+🚀 **Live Demo**: [Hugging Face Spaces](https://huggingface.co/spaces/ArchCoder/federated-credit-scoring)
+
+The web demo allows you to:
+- Enter customer features and get credit score predictions
+- See how federated learning works
+- Understand privacy-preserving ML concepts
 
 ## Installation
 
 ```bash
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
-
-## Usage
-
-
-## Project Structure
-
-
-## License
-
-MIT
-
-## Contributing
-
 
 ## Federated Credit Scoring Demo (with Web App)
 
@@ -65,7 +67,37 @@ streamlit run webapp/streamlit_app.py
 - Enter 32 features (dummy values are fine for demo)
 - Click "Predict Credit Score" to get a prediction from the federated model
 - View training progress in the app
+- Toggle between Demo Mode (no server required) and Real Mode (connects to server)
 
 *For best results, keep the server and at least two clients running in parallel.*
 
+## Project Structure
+
+```
+FinFedRAG-Financial-Federated-RAG/
+├── src/
+│   ├── api/           # REST API for server and client communication
+│   ├── client/        # Federated learning client implementation
+│   ├── server/        # Federated learning server and coordinator
+│   ├── rag/           # Retrieval-Augmented Generation components
+│   ├── models/        # VAE/GAN models for data generation
+│   └── utils/         # Privacy, metrics, and utility functions
+├── webapp/            # Streamlit web application
+├── config/            # Configuration files
+├── tests/             # Unit and integration tests
+├── docker/            # Docker configurations
+├── kubernetes/        # Kubernetes deployment files
+└── app.py             # Root app.py for Hugging Face Spaces deployment
+```
+
+## License
+
+MIT
+
+## Contributing
+
+Please read our contributing guidelines before submitting pull requests.
+
 ---
+
+**Demo URL**: https://huggingface.co/spaces/ArchCoder/federated-credit-scoring

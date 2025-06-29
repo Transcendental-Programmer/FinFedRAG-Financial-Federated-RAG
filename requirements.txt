@@ -1,13 +1,28 @@
-# Core ML frameworks
-tensorflow
-tensorflow-federated
-torch
-transformers
+# Core ML and Deep Learning
+tensorflow>=2.8.0
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
 
-# Data processing
-pandas
-numpy
-scikit-learn
+# Web Framework and API
+flask>=2.0.0
+requests>=2.25.0
+streamlit
+
+# Configuration and utilities
+pyyaml>=6.0
+pathlib2>=2.3.0
+
+# Development and testing
+pytest>=6.0.0
+pytest-cov>=2.0.0
+
+# Logging and monitoring
+python-json-logger>=2.0.0
+
+# Optional: For advanced features
+# tensorflow-federated>=0.20.0  # Uncomment if using TFF
+# torch>=1.10.0  # Uncomment if using PyTorch
 
 # RAG components
 elasticsearch
@@ -18,19 +33,8 @@ tensorflow-privacy
 pysyft
 
 # API and web
-flask
 fastapi
 uvicorn
-requests
-streamlit
-
-# Configuration and utilities
-pyyaml
-# Testing and development
-pytest
-black
-flake8
-isort
 
 # Documentation
 sphinx

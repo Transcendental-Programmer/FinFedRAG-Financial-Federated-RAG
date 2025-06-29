@@ -23,6 +23,7 @@ client:
   training:
     local_epochs: 3
     learning_rate: 0.001
+    batch_size: 32
     
   # Privacy configuration
   privacy:
