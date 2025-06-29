@@ -17,13 +17,13 @@ license: mit
 
 # Federated Learning for Privacy-Preserving Financial Data Generation with RAG Integration
 
-This project implements a **complete federated learning framework** with a Retrieval-Augmented Generation (RAG) system for privacy-preserving synthetic financial data generation. The system includes a working server, multiple clients, and an interactive web application.
+This project implements a complete federated learning framework with a Retrieval-Augmented Generation (RAG) system for privacy-preserving synthetic financial data generation. The system includes a working server, multiple clients, and an interactive web application.
 
-## 🚀 Live Demo
+## Live Demo
 
 **Try it now**: [Hugging Face Spaces](https://huggingface.co/spaces/ArchCoder/federated-credit-scoring)
 
-## ✨ Features
+## Features
 
 - **Complete Federated Learning System**: Working server, clients, and web interface
 - **Real-time Predictions**: Get credit score predictions from the federated model
@@ -33,9 +33,9 @@ This project implements a **complete federated learning framework** with a Retri
 - **Educational**: Learn about federated learning concepts
 - **Production Ready**: Docker and Kubernetes deployment support
 
-## 🎯 Quick Start
+## Quick Start
 
-### Option 1: Try the Demo (No Setup Required)
+### Option 1: Try the Demo
 1. Visit the [Live Demo](https://huggingface.co/spaces/ArchCoder/federated-credit-scoring)
 2. Enter customer features and get predictions
 3. Learn about federated learning
@@ -72,7 +72,7 @@ streamlit run webapp/streamlit_app.py
 python test_complete_system.py
 ```
 
-## 🎮 How to Use
+## How to Use
 
 ### Web Application Features:
 - **Demo Mode**: Works without server (perfect for HF Spaces)
@@ -91,7 +91,7 @@ python test_complete_system.py
 6. **Global Model**: Updated model is distributed to all clients
 7. **Prediction**: Users can get predictions from the global model
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -107,7 +107,7 @@ python test_complete_system.py
                        └─────────────────┘
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 FinFedRAG-Financial-Federated-RAG/
@@ -129,7 +129,7 @@ FinFedRAG-Financial-Federated-RAG/
 └── test_complete_system.py # End-to-end system test
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Server Configuration (`config/server_config.yaml`)
 ```yaml
@@ -159,7 +159,7 @@ client:
     input_dim: 32
 ```
 
-## 🧪 Testing
+## Testing
 
 Run the complete system test:
 ```bash
@@ -167,12 +167,12 @@ python test_complete_system.py
 ```
 
 This will test:
-- ✅ Server health
-- ✅ Client registration
-- ✅ Training status
-- ✅ Prediction functionality
+- Server health
+- Client registration
+- Training status
+- Prediction functionality
 
-## 🚀 Deployment
+## Deployment
 
 ### Hugging Face Spaces (Recommended)
 1. Fork this repository
@@ -196,14 +196,14 @@ streamlit run webapp/streamlit_app.py
 docker-compose up
 ```
 
-## 📊 Performance
+## Performance
 
 - **Model Accuracy**: 85%+ across federated rounds
 - **Response Time**: <1 second for predictions
 - **Scalability**: Supports 10+ concurrent clients
 - **Privacy**: Zero raw data sharing
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -211,11 +211,11 @@ docker-compose up
 4. Add tests
 5. Submit a pull request
 
-## 📄 License
+## License
 
 MIT License - see LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - TensorFlow for the ML framework
 - Streamlit for the web interface

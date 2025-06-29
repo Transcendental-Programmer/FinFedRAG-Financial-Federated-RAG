@@ -6,6 +6,73 @@ import threading
 import json
 from datetime import datetime
 
+# Client Simulator Class (moved to top)
+class ClientSimulator:
+    def __init__(self, server_url):
+        self.server_url = server_url
+        self.client_id = f"web_client_{int(time.time())}"
+        self.is_running = False
+        self.thread = None
+        self.last_update = "Never"
+        
+    def start(self):
+        self.is_running = True
+        self.thread = threading.Thread(target=self._run_client, daemon=True)
+        self.thread.start()
+        
+    def stop(self):
+        self.is_running = False
+        
+    def _run_client(self):
+        try:
+            # Register with server
+            client_info = {
+                'dataset_size': 100,
+                'model_params': 10000,
+                'capabilities': ['training', 'inference']
+            }
+            
+            resp = requests.post(f"{self.server_url}/register", 
+                               json={'client_id': self.client_id, 'client_info': client_info})
+            
+            if resp.status_code == 200:
+                st.session_state.training_history.append({
+                    'round': 0,
+                    'active_clients': 1,
+                    'clients_ready': 0,
+                    'timestamp': datetime.now()
+                })
+                
+                # Simulate client participation
+                while self.is_running:
+                    try:
+                        # Get training status
+                        status = requests.get(f"{self.server_url}/training_status")
+                        if status.status_code == 200:
+                            data = status.json()
+                            
+                            # Update training history
+                            st.session_state.training_history.append({
+                                'round': data.get('current_round', 0),
+                                'active_clients': data.get('active_clients', 0),
+                                'clients_ready': data.get('clients_ready', 0),
+                                'timestamp': datetime.now()
+                            })
+                            
+                            # Keep only last 50 entries
+                            if len(st.session_state.training_history) > 50:
+                                st.session_state.training_history = st.session_state.training_history[-50:]
+                        
+                        time.sleep(5)  # Check every 5 seconds
+                        
+                    except Exception as e:
+                        print(f"Client simulator error: {e}")
+                        time.sleep(10)
+                        
+        except Exception as e:
+            print(f"Failed to start client simulator: {e}")
+            self.is_running = False
+
 st.set_page_config(page_title="Federated Credit Scoring Demo", layout="centered")
 st.title("Federated Credit Scoring Demo (Federated Learning)")
 
@@ -172,71 +239,4 @@ if st.session_state.client_simulator and not DEMO_MODE:
 st.markdown("---")
 st.markdown("""
 *This is a demonstration of federated learning concepts. For full functionality, run the federated server and clients locally.*
-""")
-
-# Client Simulator Class
-class ClientSimulator:
-    def __init__(self, server_url):
-        self.server_url = server_url
-        self.client_id = f"web_client_{int(time.time())}"
-        self.is_running = False
-        self.thread = None
-        self.last_update = "Never"
-        
-    def start(self):
-        self.is_running = True
-        self.thread = threading.Thread(target=self._run_client, daemon=True)
-        self.thread.start()
-        
-    def stop(self):
-        self.is_running = False
-        
-    def _run_client(self):
-        try:
-            # Register with server
-            client_info = {
-                'dataset_size': 100,
-                'model_params': 10000,
-                'capabilities': ['training', 'inference']
-            }
-            
-            resp = requests.post(f"{self.server_url}/register", 
-                               json={'client_id': self.client_id, 'client_info': client_info})
-            
-            if resp.status_code == 200:
-                st.session_state.training_history.append({
-                    'round': 0,
-                    'active_clients': 1,
-                    'clients_ready': 0,
-                    'timestamp': datetime.now()
-                })
-                
-                # Simulate client participation
-                while self.is_running:
-                    try:
-                        # Get training status
-                        status = requests.get(f"{self.server_url}/training_status")
-                        if status.status_code == 200:
-                            data = status.json()
-                            
-                            # Update training history
-                            st.session_state.training_history.append({
-                                'round': data.get('current_round', 0),
-                                'active_clients': data.get('active_clients', 0),
-                                'clients_ready': data.get('clients_ready', 0),
-                                'timestamp': datetime.now()
-                            })
-                            
-                            # Keep only last 50 entries
-                            if len(st.session_state.training_history) > 50:
-                                st.session_state.training_history = st.session_state.training_history[-50:]
-                        
-                        time.sleep(5)  # Check every 5 seconds
-                        
-                    except Exception as e:
-                        print(f"Client simulator error: {e}")
-                        time.sleep(10)
-                        
-        except Exception as e:
-            print(f"Failed to start client simulator: {e}")
-            self.is_running = False 
+""") 
